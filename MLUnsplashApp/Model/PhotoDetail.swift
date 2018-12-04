@@ -29,7 +29,7 @@ class PhotoDetail:Mappable {
         
         id <- map["id"]
         views <- map["views"]
-        downloads <- map["downlaods"]
+        downloads <- map["downloads"]
         description<-map["description"]
         created<-map["created_at"]
         full<-map["urls.full"]
