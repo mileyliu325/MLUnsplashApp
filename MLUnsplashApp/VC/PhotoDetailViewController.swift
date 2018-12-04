@@ -34,6 +34,8 @@ class PhotoDetailViewController: UIViewController {
         
         self.descriptionLabel.lineBreakMode = .byWordWrapping
         self.descriptionLabel.numberOfLines = 0
+        self.dateLabel.lineBreakMode = .byWordWrapping
+        self.downloadsLabel.numberOfLines = 0
         
     }
     @IBAction func closePage(_ sender: Any) {
@@ -54,16 +56,15 @@ class PhotoDetailViewController: UIViewController {
                     print("value:\(value)")
                     let photoDetail = Mapper<PhotoDetail>().map(JSONObject: value)
                     
-                    self.fullImageView.sd_setImage(with:URL(string:(photoDetail?.full)!)
-                        , completed: { (image, erro, cache, url) in
-                            self.fullImageView.image = image
-                    })
+                    self.fullImageView.sd_setImage(with: URL(string:(photoDetail?.full)!), placeholderImage: UIImage.init(named: "placeholder"), options: .continueInBackground, completed: nil)
+                    
                     
                     self.viewLabel.text = "\(photoDetail?.views! ?? 0)"
                     self.downloadsLabel.text = "\(photoDetail?.downloads! ?? 0)"
                     self.likesLabel.text = "\(photoDetail?.likes! ?? 0)"
                     self.descriptionLabel.text = photoDetail?.description
-                    self.dateLabel.text = photoDetail?.created
+                    //todo date modified
+                    self.dateLabel.text = "Uploaded at:\(photoDetail?.created! ?? "null")"
                     self.sizeLabel.text = "\(photoDetail?.width! ?? 0) * \(photoDetail?.height! ?? 0)"
                     SVProgressHUD.dismiss()
                     

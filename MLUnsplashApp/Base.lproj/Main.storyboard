@@ -68,26 +68,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-vu-vI9">
                                 <rect key="frame" x="0.0" y="267" width="375" height="400"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-ZB-1iH">
-                                        <rect key="frame" x="77.5" y="42" width="220" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-ZB-1iH">
+                                        <rect key="frame" x="82.5" y="42" width="210" height="30"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KgW-ud-cBT">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="views" translatesAutoresizingMaskIntoConstraints="NO" id="KgW-ud-cBT">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="Ngr-u3-orC"/>
-                                                    <constraint firstAttribute="height" constant="44" id="Szy-0M-YKa"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Ngr-u3-orC"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Szy-0M-YKa"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-sx-pWz">
-                                                <rect key="frame" x="88" y="0.0" width="44" height="44"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloads" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-sx-pWz">
+                                                <rect key="frame" x="90" y="0.0" width="30" height="30"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4i4-RG-gMh">
-                                                <rect key="frame" x="176" y="0.0" width="44" height="44"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likes" translatesAutoresizingMaskIntoConstraints="NO" id="4i4-RG-gMh">
+                                                <rect key="frame" x="180" y="0.0" width="30" height="30"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WDd-m2-FtI">
-                                        <rect key="frame" x="77.5" y="88" width="36" height="39"/>
+                                        <rect key="frame" x="77.5" y="74" width="36" height="39"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-Xw-EHT">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="14.5"/>
@@ -104,7 +104,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OPp-6d-XRD">
-                                        <rect key="frame" x="264" y="88" width="31.5" height="39"/>
+                                        <rect key="frame" x="264" y="74" width="31.5" height="39"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7em-S3-HzH">
                                                 <rect key="frame" x="0.0" y="0.0" width="31.5" height="14.5"/>
@@ -127,7 +127,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0lz-YW-OBi">
-                                        <rect key="frame" x="154" y="88" width="66.5" height="39"/>
+                                        <rect key="frame" x="154" y="74" width="66.5" height="39"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-26-acm">
                                                 <rect key="frame" x="0.0" y="0.0" width="66.5" height="14.5"/>
@@ -144,7 +144,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCIPTION" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qb-mC-k9h">
-                                        <rect key="frame" x="20" y="152" width="335" height="20.5"/>
+                                        <rect key="frame" x="20" y="138" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -155,13 +155,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2R-4R-2zi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2R-4R-2zi">
                                         <rect key="frame" x="305" y="330" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ja6-fk-RkK"/>
                                             <constraint firstAttribute="width" constant="50" id="jdN-CZ-L41"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Button" image="download"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,7 +228,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="C1N-3h-uOP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourite" id="94V-Jf-E2Z"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="favourite" id="94V-Jf-E2Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="163-Et-Ccw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,7 +256,7 @@
         <scene sceneID="xgx-xS-S9H">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yeG-d0-9pm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Featured" id="4xH-xQ-Zk2"/>
+                    <tabBarItem key="tabBarItem" title="Featured" image="feature" id="4xH-xQ-Zk2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6bd-Cy-ijz">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -272,4 +272,12 @@
             <point key="canvasLocation" x="526" y="131"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="download" width="100" height="100"/>
+        <image name="downloads" width="24" height="24"/>
+        <image name="favourite" width="25" height="25"/>
+        <image name="feature" width="24" height="24"/>
+        <image name="likes" width="50" height="50"/>
+        <image name="views" width="48" height="48"/>
+    </resources>
 </document>
