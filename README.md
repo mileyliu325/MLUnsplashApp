@@ -1,7 +1,7 @@
 # MLUnsplashApp
 Code Test for Freelancer
 
-##Installation
+## Installation
 Cocoapod is used for this project.
 
 If you haven't used cocoaPod before, please run the following code in the terminal: 
