@@ -149,28 +149,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uploaded at " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nad-Uw-iyZ">
-                                        <rect key="frame" x="17" y="273.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="17" y="273.5" width="278" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2R-4R-2zi">
-                                        <rect key="frame" x="305" y="263.5" width="50" height="50"/>
+                                        <rect key="frame" x="295" y="253.5" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ja6-fk-RkK"/>
                                             <constraint firstAttribute="width" constant="50" id="jdN-CZ-L41"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                         <state key="normal" title="Button" image="download"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="a2R-4R-2zi" secondAttribute="bottom" constant="20" id="6A3-Z3-FSm"/>
+                                    <constraint firstAttribute="bottom" secondItem="a2R-4R-2zi" secondAttribute="bottom" constant="30" id="6A3-Z3-FSm"/>
                                     <constraint firstItem="a2R-4R-2zi" firstAttribute="leading" secondItem="nad-Uw-iyZ" secondAttribute="trailing" id="6OW-r2-qZM"/>
                                     <constraint firstAttribute="trailing" secondItem="9qb-mC-k9h" secondAttribute="trailing" constant="20" id="Cp0-Fo-Esk"/>
                                     <constraint firstItem="2lm-ZB-1iH" firstAttribute="top" secondItem="ajb-vu-vI9" secondAttribute="top" constant="42" id="Czs-Li-adj"/>
                                     <constraint firstAttribute="trailing" secondItem="0iN-nC-sXs" secondAttribute="trailing" constant="28" id="EUB-3O-dI4"/>
-                                    <constraint firstAttribute="trailing" secondItem="a2R-4R-2zi" secondAttribute="trailing" constant="20" id="J9O-f4-XUx"/>
+                                    <constraint firstAttribute="trailing" secondItem="a2R-4R-2zi" secondAttribute="trailing" constant="30" id="J9O-f4-XUx"/>
                                     <constraint firstItem="WDd-m2-FtI" firstAttribute="top" secondItem="KgW-ud-cBT" secondAttribute="bottom" constant="2" id="K3w-mj-5uA"/>
                                     <constraint firstItem="nad-Uw-iyZ" firstAttribute="leading" secondItem="ajb-vu-vI9" secondAttribute="leading" constant="17" id="L9j-lW-d3k"/>
                                     <constraint firstItem="2lm-ZB-1iH" firstAttribute="leading" secondItem="WDd-m2-FtI" secondAttribute="trailing" constant="-31" id="Q1k-g3-ku9"/>
@@ -216,7 +217,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="nad-Uw-iyZ" id="KaI-vl-Kuu"/>
                         <outlet property="descriptionLabel" destination="9qb-mC-k9h" id="qPN-zC-bwX"/>
-                        <outlet property="downloadBtn" destination="a2R-4R-2zi" id="9yr-qO-LwG"/>
+                        <outlet property="downLoadButton" destination="a2R-4R-2zi" id="SXf-Nn-zj0"/>
                         <outlet property="downloadsLabel" destination="2Dz-Z3-CII" id="2JL-U1-Oaw"/>
                         <outlet property="fullImageView" destination="5W7-sy-OpS" id="2Wj-yU-aG5"/>
                         <outlet property="likesLabel" destination="ToK-Xr-kMG" id="pzD-A5-v82"/>
@@ -285,7 +286,7 @@
     </scenes>
     <resources>
         <image name="cancel" width="24" height="24"/>
-        <image name="download" width="100" height="100"/>
+        <image name="download" width="50" height="50"/>
         <image name="downloads" width="24" height="24"/>
         <image name="favourite" width="25" height="25"/>
         <image name="feature" width="24" height="24"/>

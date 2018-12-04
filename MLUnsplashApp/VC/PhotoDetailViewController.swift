@@ -21,7 +21,8 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet var sizeLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var downloadBtn: UIButton!
+    @IBOutlet var downLoadButton: UIButton!
+    
     var photoId : String?
     
     override func viewDidLoad() {
@@ -34,6 +35,9 @@ class PhotoDetailViewController: UIViewController {
         self.descriptionLabel.numberOfLines = 0
         self.dateLabel.lineBreakMode = .byWordWrapping
         self.downloadsLabel.numberOfLines = 0
+        self.downLoadButton.set(anImage: UIImage(named:"download"), title: "Download", titlePosition: .bottom, additionalSpacing: 5, state: .normal)
+        
+        
         
     }
     @IBAction func closePage(_ sender: Any) {
@@ -68,7 +72,7 @@ class PhotoDetailViewController: UIViewController {
             self.downloadsLabel.text = "\(photoDetail?.downloads! ?? 0)"
             self.likesLabel.text = "\(photoDetail?.likes! ?? 0)"
             self.descriptionLabel.text = photoDetail?.description
-            //todo date modified
+         
             if let dateString = photoDetail?.created{
                 //show date only
                 let date =   dateString.split(separator: "T")
@@ -77,12 +81,9 @@ class PhotoDetailViewController: UIViewController {
             }else
             {
                 self.dateLabel.text = "Uploaded at Unkown date"
-                
             }
-           
-            
+
             self.sizeLabel.text = "\(photoDetail?.width! ?? 0) * \(photoDetail?.height! ?? 0)"
-           
             SVProgressHUD.dismiss()
             
         }
