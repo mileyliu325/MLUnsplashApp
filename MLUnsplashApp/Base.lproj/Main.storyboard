@@ -44,7 +44,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="UnsplashApp" id="tj1-op-ULL"/>
                     <connections>
-                        <segue destination="enz-l0-6ma" kind="presentation" id="A8n-4S-RdO"/>
+                        <outlet property="photoCollectionView" destination="TKo-7v-aZi" id="g83-LV-tHE"/>
+                        <segue destination="enz-l0-6ma" kind="presentation" identifier="toDetail" id="A8n-4S-RdO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
