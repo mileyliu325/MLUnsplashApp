@@ -45,10 +45,10 @@ class PhotoCollectionViewController: UIViewController {
         }
         
         for i in 0..<imagesData.count{
-            var photoData = imagesData[i] as! PhotoData
+            let photoData = imagesData[i] as! PhotoData
             let url = URL(string: photoData.thumb!)
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            var image = UIImage(data: data!)
+            let image = UIImage(data: data!)
             images.append(image!)
         }
         layout.setSize = {
@@ -63,48 +63,53 @@ class PhotoCollectionViewController: UIViewController {
     }
      // MARK: - getData
     func getPhotoList(page:Int) {
-        //TODO: MOVE TO MANAGER
+       
         SVProgressHUD.show()
-        //todo change url
-        let url = URL.init(string: "https://api.unsplash.com/collections/featured?page=\(page)&per_page=15&client_id=95f7082d453e177f4c98fbd99e7df1b975a3f0a8c3acae58941353fa9cd3ae7c")!
         
-        Alamofire.request(url).validate()
-            .responseJSON {response in
-                switch response.result {
-                case .success(let value):
-                    
-                    let resultArray = value as! NSArray
-                    
-                    if resultArray.count == 0 {
-                        return
-                    }
-                    
-                    var newImagesData = NSMutableArray()
-                    for index in 0..<resultArray.count{
-                        
-                        let photo = Mapper<PhotoData>().map(JSONObject: resultArray[index])
-                        print("PHOTOS:\(String(describing: photo?.coverID))")
-                        self.imagesData.add(photo)
-                        newImagesData.add(photo)
-                    }
-                    
-                    print("imagesData:\(self.imagesData.count)")
-                    guard self.imagesData.count>0 else{
-                        print("no images")
-                        return
-                    }
-                    
-                    self.waterFallLayout(imagesData: newImagesData)
-                    
-                    self.photoCollectionView.collectionViewLayout.invalidateLayout()
-                    //                    self.photoCollectionView.reloadData()
-                    
-                    SVProgressHUD.dismiss()
-                case .failure(let error):
-                    print("Request Error:\(error)")
-                    return
-                }
+        let manager =  PhotoRequestManager.init(path: API.featuredPath, qureryName: "page", queryValue: "\(page)")
+        
+        manager.requestPhoto(url: manager.fullURL) { (value, error) in
+               guard error == nil else {
+                
+                let alert = getSimpleAlert (titleString: "error", messgae:"\(error?.localizedDescription ?? "Unknown error")")
+    
+                self.present(alert, animated: true, completion: {
+                     SVProgressHUD.dismiss()
+                })
+                return
+            }
+            
+            let resultArray = value as! NSArray
+            if resultArray.count == 0 {
+                return
+            }
+            
+            let newImagesData = NSMutableArray()
+            for index in 0..<resultArray.count{
+                
+                let photo = Mapper<PhotoData>().map(JSONObject: resultArray[index])
+               
+                self.imagesData.add(photo)
+                newImagesData.add(photo)
+            }
+            
+            print("imagesData:\(self.imagesData.count)")
+            guard self.imagesData.count>0 else{
+                print("no images")
+                return
+            }
+            
+            self.waterFallLayout(imagesData: newImagesData)
+            
+            self.photoCollectionView.collectionViewLayout.invalidateLayout()
+            //                    self.photoCollectionView.reloadData()
+            
+            SVProgressHUD.dismiss()
+            
+            
         }
+        
+      
     }
 
     // MARK: - Navigation

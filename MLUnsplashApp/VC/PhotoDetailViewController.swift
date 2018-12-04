@@ -15,9 +15,7 @@ import ObjectMapper
 class PhotoDetailViewController: UIViewController {
 
     @IBOutlet var fullImageView: UIImageView!
-    
     @IBOutlet var viewLabel: UILabel!
-    
     @IBOutlet var downloadsLabel: UILabel!
     @IBOutlet var likesLabel: UILabel!
     @IBOutlet var sizeLabel: UILabel!
@@ -29,7 +27,7 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let photoId = photoId {
-            fetchPhotoDetail()
+            fetchPhotoDetail(id:photoId)
         }
         
         self.descriptionLabel.lineBreakMode = .byWordWrapping
@@ -42,44 +40,45 @@ class PhotoDetailViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-    func fetchPhotoDetail(){
+    func fetchPhotoDetail(id:String) {
         
         SVProgressHUD.show()
-        //todo change url
-        let url = URL.init(string: "https://api.unsplash.com/photos/\(self.photoId!)?client_id=95f7082d453e177f4c98fbd99e7df1b975a3f0a8c3acae58941353fa9cd3ae7c")!
         
-        Alamofire.request(url).validate()
-            .responseJSON {response in
-                switch response.result {
-                case .success(let value):
-                    
-                    print("value:\(value)")
-                    let photoDetail = Mapper<PhotoDetail>().map(JSONObject: value)
-                    
-                    self.fullImageView.sd_setImage(with: URL(string:(photoDetail?.full)!), placeholderImage: UIImage.init(named: "placeholder"), options: .continueInBackground, completed: nil)
-                    
-                    
-                    self.viewLabel.text = "\(photoDetail?.views! ?? 0)"
-                    self.downloadsLabel.text = "\(photoDetail?.downloads! ?? 0)"
-                    self.likesLabel.text = "\(photoDetail?.likes! ?? 0)"
-                    self.descriptionLabel.text = photoDetail?.description
-                    //todo date modified
-                    self.dateLabel.text = "Uploaded at:\(photoDetail?.created! ?? "null")"
-                    self.sizeLabel.text = "\(photoDetail?.width! ?? 0) * \(photoDetail?.height! ?? 0)"
-                    SVProgressHUD.dismiss()
-                    
-                case .failure(let error):
-                    print("Request Error:\(error)")
-                    return
-                }
+        let manager = PhotoRequestManager.init(path: API.photoPath, id: id)
+        let url = manager.fullURL
+        
+        manager.requestPhoto(url: url) { (value, error) in
+            
+            guard error == nil else {
+                print("Request Error:\(error)")
+               
+                let alert = getSimpleAlert (titleString: "error", messgae:"\(String(describing: error?.localizedDescription))")
+                
+                self.present(alert, animated: true,completion: {
+                     SVProgressHUD.dismiss()
+                })
+                
+              
+                return
+            }
+            
+            let photoDetail = Mapper<PhotoDetail>().map(JSONObject: value)
+            
+            self.fullImageView.sd_setImage(with: URL(string:(photoDetail?.full)!), placeholderImage: UIImage.init(named: "placeholder"), options: .continueInBackground, completed: nil)
+            
+            self.viewLabel.text = "\(photoDetail?.views! ?? 0)"
+            self.downloadsLabel.text = "\(photoDetail?.downloads! ?? 0)"
+            self.likesLabel.text = "\(photoDetail?.likes! ?? 0)"
+            self.descriptionLabel.text = photoDetail?.description
+            //todo date modified
+            self.dateLabel.text = "Uploaded at:\(photoDetail?.created! ?? "N/A")"
+            self.sizeLabel.text = "\(photoDetail?.width! ?? 0) * \(photoDetail?.height! ?? 0)"
+            SVProgressHUD.dismiss()
+            
         }
-        
+   
     }
-
     
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
