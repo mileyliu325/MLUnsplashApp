@@ -50,15 +50,13 @@ class PhotoDetailViewController: UIViewController {
         manager.requestPhoto(url: url) { (value, error) in
             
             guard error == nil else {
-                print("Request Error:\(error)")
-               
+  
                 let alert = getSimpleAlert (titleString: "error", messgae:"\(String(describing: error?.localizedDescription))")
                 
                 self.present(alert, animated: true,completion: {
                      SVProgressHUD.dismiss()
                 })
                 
-              
                 return
             }
             
@@ -71,8 +69,20 @@ class PhotoDetailViewController: UIViewController {
             self.likesLabel.text = "\(photoDetail?.likes! ?? 0)"
             self.descriptionLabel.text = photoDetail?.description
             //todo date modified
-            self.dateLabel.text = "Uploaded at:\(photoDetail?.created! ?? "N/A")"
+            if let dateString = photoDetail?.created{
+                //show date only
+                let date =   dateString.split(separator: "T")
+                self.dateLabel.text = "Uploaded at:\(date.first! )"
+                
+            }else
+            {
+                self.dateLabel.text = "Uploaded at Unkown date"
+                
+            }
+           
+            
             self.sizeLabel.text = "\(photoDetail?.width! ?? 0) * \(photoDetail?.height! ?? 0)"
+           
             SVProgressHUD.dismiss()
             
         }

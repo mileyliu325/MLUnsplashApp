@@ -15,12 +15,11 @@ class PhotoDetail:Mappable {
     var views: Int?
     var downloads : Int?
     var description :String?
-    var created: String?
+    var created:String?
     var full: String?
     var likes:Int?
     var width:Int?
     var height:Int?
-    
     
     required init?(map: Map) {
         

@@ -16,3 +16,41 @@ func getSimpleAlert (titleString: String, messgae:String) ->UIAlertController{
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
     return alert
 }
+
+
+func stringToDate(dateString:String)-> Date? {
+    
+    let dateFormatter = DateFormatter()
+    
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.SSSZ"
+    let date = dateFormatter.date(from: dateString)
+    return date
+
+}
+
+func simplerDate(longDate:String) ->String {
+    
+    let longFormatter = DateFormatter()
+    longFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.SSSZ"
+    let date = longFormatter.date(from: longDate)
+    
+    if let dat = date {
+        
+        let simpleFormat = DateFormatter()
+        simpleFormat.dateFormat = "yyyy-MM-dd"
+        let dateStr = simpleFormat.string(from: dat)
+        return dateStr
+    }
+    return "transferError"
+    
+
+}
+
+
+func dateToString(date:Date) ->String {
+    let format = DateFormatter()
+    format.dateFormat = "yyyy-MM-dd"
+    let dateStr = format.string(from: date)
+    return dateStr
+    
+}

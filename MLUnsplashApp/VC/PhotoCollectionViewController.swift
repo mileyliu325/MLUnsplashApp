@@ -32,9 +32,9 @@ class PhotoCollectionViewController: UIViewController {
         
         SVProgressHUD.show()
         getPhotoList(page: pageIndex)
-
+        
     }
-     // MARK: - Setup layout
+    // MARK: - Setup layout
     func waterFallLayout(imagesData:NSMutableArray) {
         width = (view.bounds.size.width - 20)/3
         let layout = WaterFlowViewLayout()
@@ -61,20 +61,20 @@ class PhotoCollectionViewController: UIViewController {
         self.photoCollectionView.dataSource = self
         
     }
-     // MARK: - getData
+    // MARK: - getData
     func getPhotoList(page:Int) {
-       
+        
         SVProgressHUD.show()
         
         let manager =  PhotoRequestManager.init(path: API.featuredPath, qureryName: "page", queryValue: "\(page)")
         
         manager.requestPhoto(url: manager.fullURL) { (value, error) in
-               guard error == nil else {
+            guard error == nil else {
                 
                 let alert = getSimpleAlert (titleString: "error", messgae:"\(error?.localizedDescription ?? "Unknown error")")
-    
+                
                 self.present(alert, animated: true, completion: {
-                     SVProgressHUD.dismiss()
+                    SVProgressHUD.dismiss()
                 })
                 return
             }
@@ -88,9 +88,9 @@ class PhotoCollectionViewController: UIViewController {
             for index in 0..<resultArray.count{
                 
                 let photo = Mapper<PhotoData>().map(JSONObject: resultArray[index])
-               
-                self.imagesData.add(photo)
-                newImagesData.add(photo)
+                
+                self.imagesData.add(photo ?? photo as Any)
+                newImagesData.add(photo ?? photo as Any)
             }
             
             print("imagesData:\(self.imagesData.count)")
@@ -102,26 +102,19 @@ class PhotoCollectionViewController: UIViewController {
             self.waterFallLayout(imagesData: newImagesData)
             
             self.photoCollectionView.collectionViewLayout.invalidateLayout()
-            //                    self.photoCollectionView.reloadData()
-            
             SVProgressHUD.dismiss()
-            
-            
         }
-        
-      
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toDetail" {
             
             let nextCV = segue.destination as! PhotoDetailViewController
-            nextCV.photoId = sender as! String
+            nextCV.photoId = sender as? String
         }
     }
-
 }
 
 extension PhotoCollectionViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate{
@@ -155,7 +148,7 @@ extension PhotoCollectionViewController: UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath as IndexPath)
+        _ = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath as IndexPath)
         
         let photo = self.imagesData[indexPath.item] as! PhotoData
         performSegue(withIdentifier: "toDetail", sender: photo.coverID)
@@ -180,7 +173,6 @@ extension PhotoCollectionViewController: UICollectionViewDelegate,UICollectionVi
     func begainBatchFetch() {
         
         fetchingMore = true
-        print("begainBatchFetch")
         pageIndex += 1
         DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
             self.getPhotoList(page: self.pageIndex)
