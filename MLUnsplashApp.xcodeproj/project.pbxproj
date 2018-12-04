@@ -18,6 +18,9 @@
 		6BBF3D9C21B6034200849D36 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3D9B21B6034200849D36 /* PhotoCollectionViewController.swift */; };
 		6BBF3D9E21B6035E00849D36 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3D9D21B6035E00849D36 /* PhotoDetailViewController.swift */; };
 		6BBF3DA121B603AB00849D36 /* WaterFlowViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3DA021B603AB00849D36 /* WaterFlowViewLayout.swift */; };
+		6BBF3DA321B604EB00849D36 /* PhotoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3DA221B604EB00849D36 /* PhotoData.swift */; };
+		6BBF3DA621B6051500849D36 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3DA521B6051500849D36 /* PhotoDetail.swift */; };
+		6BBF3DA921B6054200849D36 /* PhotoRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3DA821B6054200849D36 /* PhotoRequestManager.swift */; };
 		F09E4DCBBFDF574BF1F058BB /* Pods_MLUnsplashApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B960B37CB2A3ECBD712E4C62 /* Pods_MLUnsplashApp.framework */; };
 		F5E9C12AFB229BE5A944870B /* Pods_MLUnsplashAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC66902CBF04BDC39573C7F /* Pods_MLUnsplashAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		6BBF3D9B21B6034200849D36 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		6BBF3D9D21B6035E00849D36 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		6BBF3DA021B603AB00849D36 /* WaterFlowViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFlowViewLayout.swift; sourceTree = "<group>"; };
+		6BBF3DA221B604EB00849D36 /* PhotoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoData.swift; sourceTree = "<group>"; };
+		6BBF3DA521B6051500849D36 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
+		6BBF3DA821B6054200849D36 /* PhotoRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRequestManager.swift; sourceTree = "<group>"; };
 		91866A3DDFE555836F7E30A3 /* Pods-MLUnsplashAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLUnsplashAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLUnsplashAppTests/Pods-MLUnsplashAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		9887F64D6C8BD664023D9ACB /* Pods-MLUnsplashApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLUnsplashApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLUnsplashApp/Pods-MLUnsplashApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AB01E7696B2AC3B8101E563F /* Pods-MLUnsplashApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLUnsplashApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLUnsplashApp/Pods-MLUnsplashApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +131,8 @@
 				6BBF3D7221B5FE6F00849D36 /* Assets.xcassets */,
 				6BBF3D7421B5FE6F00849D36 /* LaunchScreen.storyboard */,
 				6BBF3D7721B5FE7000849D36 /* Info.plist */,
-				6BBF3D9921B6018C00849D36 /* API.swift */,
+				6BBF3DA721B6052300849D36 /* Networking */,
+				6BBF3DA421B604F400849D36 /* Model */,
 				6BBF3D9F21B6036700849D36 /* VC */,
 			);
 			path = MLUnsplashApp;
@@ -157,6 +164,24 @@
 				6BBF3DA021B603AB00849D36 /* WaterFlowViewLayout.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		6BBF3DA421B604F400849D36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6BBF3DA221B604EB00849D36 /* PhotoData.swift */,
+				6BBF3DA521B6051500849D36 /* PhotoDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6BBF3DA721B6052300849D36 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6BBF3D9921B6018C00849D36 /* API.swift */,
+				6BBF3DA821B6054200849D36 /* PhotoRequestManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		79BB8DEB429C3EB219840161 /* Frameworks */ = {
@@ -403,8 +428,11 @@
 			files = (
 				6BBF3D9A21B6018C00849D36 /* API.swift in Sources */,
 				6BBF3DA121B603AB00849D36 /* WaterFlowViewLayout.swift in Sources */,
+				6BBF3DA921B6054200849D36 /* PhotoRequestManager.swift in Sources */,
+				6BBF3DA321B604EB00849D36 /* PhotoData.swift in Sources */,
 				6BBF3D9C21B6034200849D36 /* PhotoCollectionViewController.swift in Sources */,
 				6BBF3D9E21B6035E00849D36 /* PhotoDetailViewController.swift in Sources */,
+				6BBF3DA621B6051500849D36 /* PhotoDetail.swift in Sources */,
 				6BBF3D6C21B5FE6F00849D36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

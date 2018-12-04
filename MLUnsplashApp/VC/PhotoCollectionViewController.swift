@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import ObjectMapper
+import SVProgressHUD
 
 class PhotoCollectionViewController: UIViewController {
 
