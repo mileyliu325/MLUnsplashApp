@@ -1,5 +1,5 @@
 # MLUnsplashApp
-Code Test for Freelancer
+Show a picture gallery from unsplash 
 
 ## Installation
 Cocoapod is used for this project.
